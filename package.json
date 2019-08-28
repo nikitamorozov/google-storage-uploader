@@ -4,7 +4,7 @@
   "description": "Boilerplate Node.js app for handling user uploads to Google Cloud Storage",
   "main": "index.js",
   "scripts": {
-    "start": "GCLOUD_STORAGE_BUCKET=wiki-eam GCLOUD_KEY_FILE=google.json PORT=3321 ORIGIN=* babel-node index.js --presets es2015,stage-2",
+    "start": "GCLOUD_STORAGE_BUCKET=wiki-eam GCLOUD_KEY_FILE=google.json PORT=3321 babel-node index.js --presets es2015,stage-2",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
