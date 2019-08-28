@@ -1,7 +1,8 @@
-import multer, {memoryStorage} from "multer";
-import express from "express";
-import storage from "@google-cloud/storage";
 import md5 from 'md5';
+import express from 'express';
+import fileExtension from 'file-extension';
+import storage from '@google-cloud/storage';
+import multer, {memoryStorage} from 'multer';
 
 // Instantiate a storage client
 const googleCloudStorage = storage({
