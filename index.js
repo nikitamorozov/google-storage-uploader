@@ -1,6 +1,7 @@
 import multer, {memoryStorage} from "multer";
 import express from "express";
 import storage from "@google-cloud/storage";
+import md5 from 'md5';
 
 // Instantiate a storage client
 const googleCloudStorage = storage({
@@ -43,7 +44,8 @@ app.post("/upload", m.single("file"), (req, res, next) => {
   }
 
   // Create a new blob in the bucket and upload the file data.
-  const blob = bucket.file(req.file.originalname);
+  const ext = fileExtension(req.file.originalname);
+  const blob = bucket.file(`${md5(req.file)}.${ext}`);
 
   // Make sure to set the contentType metadata for the browser to be able
   // to render the image instead of downloading the file (default behavior)
