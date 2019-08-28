@@ -45,8 +45,7 @@ app.post("/upload", m.single("file"), (req, res, next) => {
   }
 
   // Create a new blob in the bucket and upload the file data.
-  const ext = fileExtension(req.file.originalname);
-  const blob = bucket.file(`${md5(req.file)}.${ext}`);
+  const blob = bucket.file(`img${new Date().getTime()}.${ext}`);
 
   // Make sure to set the contentType metadata for the browser to be able
   // to render the image instead of downloading the file (default behavior)
